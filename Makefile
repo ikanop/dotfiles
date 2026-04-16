@@ -6,7 +6,7 @@ export XDG_CONFIG_HOME=$(HOME)/.config
 
 .PHONY: test
 
-macos: brew stow packages link
+macos: brew stow packages link settings
 
 brew:
 	command -v brew >/dev/null 2>&1 || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
@@ -26,6 +26,15 @@ link: stow
 packages:
 	brew bundle --file=$(DOTFILES_DIR)/install/Brewfile || true
 	brew bundle --file=$(DOTFILES_DIR)/install/Caskfile || true
+
+settings:
+	defaults write com.apple.finder "ShowPathbar" -bool "true"
+	defaults write com.apple.finder "AppleShowAllFiles" -bool "true"
+	defaults write NSGlobalDomain "ApplePressAndHoldEnabled" -bool "false"
+	defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true"
+	defaults write com.apple.screencapture "location" -string "~/Pictures" && killall SystemUIServer
+	defaults write com.apple.dock "autohide-delay" -float "0" && killall Dock
+	killall Finder || true
 
 test:
 	bats test
