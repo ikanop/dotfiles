@@ -1,0 +1,6 @@
+cask "firefox"
+cask "kitty"
+cask "font-jetbrains-mono-nerd-font"
+cask "alt-tab"
+cask "rectangle"
+cask "1password"
