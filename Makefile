@@ -4,9 +4,9 @@ SHELL := /bin/bash
 
 export XDG_CONFIG_HOME=$(HOME)/.config
 
-.PHONY: test
+.PHONY: macos brew stow link packages settings
 
-macos: brew stow packages link settings
+macos: brew stow link packages settings
 
 brew:
 	command -v brew >/dev/null 2>&1 || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
@@ -37,6 +37,3 @@ settings:
 	defaults write com.apple.screencapture "location" -string "~/Pictures"
 	defaults write com.apple.dock "autohide-delay" -float "0"
 	killall SystemUIServer Dock Finder || true
-
-test:
-	bats test
