@@ -17,6 +17,8 @@ stow:
 link: stow
 	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE -a ! -h $(HOME)/$$FILE ]; then \
 		mv -v $(HOME)/$$FILE{,.bak}; fi; done
+	for FILE in $$(\ls -A config); do if [ -e $(XDG_CONFIG_HOME)/$$FILE -a ! -h $(XDG_CONFIG_HOME)/$$FILE ]; then \
+		mv -v $(XDG_CONFIG_HOME)/$$FILE{,.bak}; fi; done
 	mkdir -p "$(XDG_CONFIG_HOME)"
 	stow -t "$(HOME)" runcom
 	stow -t "$(XDG_CONFIG_HOME)" config
@@ -32,9 +34,9 @@ settings:
 	defaults write com.apple.finder "AppleShowAllFiles" -bool "true"
 	defaults write NSGlobalDomain "ApplePressAndHoldEnabled" -bool "false"
 	defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true"
-	defaults write com.apple.screencapture "location" -string "~/Pictures" && killall SystemUIServer
-	defaults write com.apple.dock "autohide-delay" -float "0" && killall Dock
-	killall Finder || true
+	defaults write com.apple.screencapture "location" -string "~/Pictures"
+	defaults write com.apple.dock "autohide-delay" -float "0"
+	killall SystemUIServer Dock Finder || true
 
 test:
 	bats test
