@@ -112,7 +112,14 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls='eza -lah --icons --git'
+# alias ls='eza -lah --icons --git'
 . "$HOME/.local/bin/env"
 alias python='python3'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# eza aliases
+alias ls='eza --icons --group-directories-first'
+alias ll='eza --icons --group-directories-first -lh --git --time-style=long-iso'
+alias la='eza --icons --group-directories-first -lha --git --time-style=long-iso'
+alias lta='eza --icons --group-directories-first -T -a --ignore-glob=".git" -L 2'
+alias lt='eza --icons --group-directories-first -T --git-ignore -L 2'
