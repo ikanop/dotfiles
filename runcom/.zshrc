@@ -87,6 +87,7 @@ export STARSHIP_CONFIG=~/.config/starship.toml
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export ANI_CLI_DOWNLOAD_DIR=$HOME/ani-cli-downloads
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -119,7 +120,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # eza aliases
 alias ls='eza --icons --group-directories-first'
-alias ll='eza --icons --group-directories-first -lh --git --time-style=long-iso'
-alias la='eza --icons --group-directories-first -lha --git --time-style=long-iso'
+alias ll='eza --icons --group-directories-first -lh --git'
+alias la='eza --icons --group-directories-first -lha --git'
 alias lta='eza --icons --group-directories-first -T -a --ignore-glob=".git" -L 2'
 alias lt='eza --icons --group-directories-first -T --git-ignore -L 2'
