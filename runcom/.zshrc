@@ -78,11 +78,6 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export ANDROID_HOME=/Users/ikanop/Library/Android/sdk/
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
 export STARSHIP_CONFIG=~/.config/starship.toml
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
@@ -124,3 +119,4 @@ alias ll='eza --icons --group-directories-first -lh --git'
 alias la='eza --icons --group-directories-first -lha --git'
 alias lta='eza --icons --group-directories-first -T -a --ignore-glob=".git" -L 2'
 alias lt='eza --icons --group-directories-first -T --git-ignore -L 2'
+alias ssh="kitty +kitten ssh"
